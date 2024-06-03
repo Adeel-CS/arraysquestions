@@ -19,7 +19,7 @@ public class Solution
         for(var i =0; i<nums.Length; ++i){
             var compliment = target - nums[i];
             if(indexwithNu.ContainsKey(compliment)){
-                return new int[] {indexwithNu[i], nums[i]};
+                return new int[] {indexwithNu[compliment], i};
             }
             indexwithNu[nums[i]] = i;
         } 
