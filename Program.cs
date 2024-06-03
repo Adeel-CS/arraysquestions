@@ -13,40 +13,72 @@ public class Solution
 
     }
 
-public static int[]? TwoSum(int[] nums, int target)
-{
-    var indexWithNumber = new Dictionary<int, int>();
-    var numberByIndex = new Dictionary<int, List<int>>();
-    for (var i = 0; i < nums.Length; ++i)
-    {
-        indexWithNumber.Add(i, nums[i]);
+    public static int[]? TwoSum(int[] nums, int target){
+        var indexwithNu = new Dictionary<int,int>();
 
-        if (numberByIndex.ContainsKey(nums[i]))
-        {
-            numberByIndex[nums[i]].Add(i);
-        }
-        else
-        {
-            numberByIndex.Add(nums[i], new List<int>() { i });
-        }
+        for(var i =0; i<nums.Length; ++i){
+            var compliment = target - nums[i];
+            if(indexwithNu.ContainsKey(compliment)){
+                return new int[] {indexwithNu[i], nums[i]};
+            }
+            indexwithNu[nums[i]] = i;
+        } 
+        return null;
     }
 
+
+    public static int[]? TwoSums(int[] nums, int target)
+{
+    var indexWithNumber = new Dictionary<int, int>();
+
     for (var i = 0; i < nums.Length; ++i)
     {
-        var remain = target - nums[i];
-
-        if (numberByIndex.TryGetValue(remain, out var indices))
+        var complement = target - nums[i];
+        if (indexWithNumber.ContainsKey(complement))
         {
-            if (indices.Count == 1 && indices.First() == i)
-            {
-                continue;
-            }
-            var index = numberByIndex[remain].Where(x => x != i).First();
-            return new int[] { i, index };
+            return new int[] { indexWithNumber[complement], i };
         }
+        indexWithNumber[nums[i]] = i;
     }
 
     return null;
 }
+
+
+// public static int[]? TwoSum(int[] nums, int target)
+// {
+//     var indexWithNumber = new Dictionary<int, int>();
+//     var numberByIndex = new Dictionary<int, List<int>>();
+//     for (var i = 0; i < nums.Length; ++i)
+//     {
+//         indexWithNumber.Add(i, nums[i]);
+
+//         if (numberByIndex.ContainsKey(nums[i]))
+//         {
+//             numberByIndex[nums[i]].Add(i);
+//         }
+//         else
+//         {
+//             numberByIndex.Add(nums[i], new List<int>() { i });
+//         }
+//     }
+
+//     for (var i = 0; i < nums.Length; ++i)
+//     {
+//         var remain = target - nums[i];
+
+//         if (numberByIndex.TryGetValue(remain, out var indices))
+//         {
+//             if (indices.Count == 1 && indices.First() == i)
+//             {
+//                 continue;
+//             }
+//             var index = numberByIndex[remain].Where(x => x != i).First();
+//             return new int[] { i, index };
+//         }
+//     }
+
+//     return null;
+// }
 
 }

@@ -12,3 +12,4 @@ d:\temp\cs\obj\Debug\net8.0\refint\cs.dll
 d:\temp\cs\obj\Debug\net8.0\cs.pdb
 D:\temp\cs\obj\Debug\net8.0\cs.genruntimeconfig.cache
 D:\temp\cs\obj\Debug\net8.0\ref\cs.dll
+d:\temp\cs\obj\Debug\net8.0\cs.sourcelink.json
